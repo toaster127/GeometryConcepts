@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epson Projector Troll & Control Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <h1>Epson Projector Hub</h1>
+                <span class="subtitle">Direct Network Controller</span>
+            </div>
+            <button class="primary-btn" onclick="addProjector()">+ Add Projector IP</button>
+        </header>
+
+        <!-- Projector Cards -->
+        <div class="card">
+            <h2>Configured Projectors</h2>
+            <div id="projectorList" class="device-list">
+                <div class="empty-state">No projectors added yet. Tap "+ Add Projector IP" to start.</div>
+            </div>
+        </div>
+
+        <!-- Quick Fun / Troll Panel -->
+        <div class="card">
+            <h2>Quick Actions & Fun Stuff</h2>
+            <p class="section-desc">Instantly trigger actions across all saved projector targets.</p>
+            <div class="actions-grid">
+                <button class="secondary-btn" onclick="broadcastCommand('MUTE+ON')">Blackout / Mute All</button>
+                <button class="secondary-btn" onclick="broadcastCommand('MUTE+OFF')">Restore Picture</button>
+                <button class="danger-btn" onclick="broadcastCommand('PWR+OFF')">Shut Down All</button>
+                <button class="success-btn" onclick="broadcastCommand('PWR+ON')">Power On All</button>
+            </div>
+        </div>
+
+        <!-- Activity Log -->
+        <div class="card">
+            <h2>Command Log</h2>
+            <div id="consoleLog" class="console-log">[System] Ready to send commands to projectors...<br></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
