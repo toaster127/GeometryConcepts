@@ -3,46 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epson Projector Troll & Control Hub</title>
+    <title>Epson Projector Command Console</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <!-- Sleek Cyber Header -->
         <header>
             <div class="brand">
-                <h1>Epson Projector Hub</h1>
-                <span class="subtitle">Direct Network Controller</span>
+                <div class="status-dot"></div>
+                <div>
+                    <h1>EPSON COMMAND HUB</h1>
+                    <span class="subtitle">Direct Hardware & ESC/VP21 Controller</span>
+                </div>
             </div>
-            <button class="primary-btn" onclick="addProjector()">+ Add Projector IP</button>
+            <div class="header-actions">
+                <a href="https://github.com/brennanbirk27" target="_blank" class="github-link">
+                    <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                    brennanbirk27
+                </a>
+                <button class="primary-btn" onclick="addProjector()">+ Add Projector IP</button>
+            </div>
         </header>
 
-        <!-- Projector Cards -->
+        <!-- Projector Target Inventory -->
         <div class="card">
-            <h2>Configured Projectors</h2>
+            <div class="card-header">
+                <h2>Configured Targets</h2>
+                <span class="badge-count" id="targetCount">0 Active</span>
+            </div>
             <div id="projectorList" class="device-list">
-                <div class="empty-state">No projectors added yet. Tap "+ Add Projector IP" to start.</div>
+                <div class="empty-state">No projectors configured yet. Tap "+ Add Projector IP" to initialize.</div>
             </div>
         </div>
 
-        <!-- Quick Fun / Troll Panel -->
+        <!-- Global Broadcast / Troll Operations -->
         <div class="card">
-            <h2>Quick Actions & Fun Stuff</h2>
-            <p class="section-desc">Instantly trigger actions across all saved projector targets.</p>
+            <h2>Global Broadcast Actions</h2>
+            <p class="section-desc">Transmit rapid ESC/VP21 payload signals to all configured network nodes simultaneously.</p>
             <div class="actions-grid">
-                <button class="secondary-btn" onclick="broadcastCommand('MUTE+ON')">Blackout / Mute All</button>
-                <button class="secondary-btn" onclick="broadcastCommand('MUTE+OFF')">Restore Picture</button>
-                <button class="danger-btn" onclick="broadcastCommand('PWR+OFF')">Shut Down All</button>
-                <button class="success-btn" onclick="broadcastCommand('PWR+ON')">Power On All</button>
+                <button class="troll-btn danger-glow" onclick="broadcastCommand('MUTE+ON')">⚡ Blackout All</button>
+                <button class="troll-btn success-glow" onclick="broadcastCommand('MUTE+OFF')">Restore Picture</button>
+                <button class="troll-btn danger-btn" onclick="broadcastCommand('PWR+OFF')">Power Down All</button>
+                <button class="troll-btn success-btn" onclick="broadcastCommand('PWR+ON')">Wake Up All</button>
             </div>
         </div>
 
-        <!-- Activity Log -->
+        <!-- Real-Time Activity Log -->
         <div class="card">
-            <h2>Command Log</h2>
-            <div id="consoleLog" class="console-log">[System] Ready to send commands to projectors...<br></div>
+            <h2>Console Activity</h2>
+            <div id="consoleLog" class="console-log">[System] Console initialized. Tap ` (backtick) at any time for Stealth Mode.<br></div>
         </div>
     </div>
 
-    <script src="app.js"></script>
-</body>
-</html>
+    <!-- Fake Math Assignment Stealth Overlay (Toggled by ` key) -->
+    <div id="stealthOverlay" class="stealth-overlay hidden">
+        <div class="math-container">
+            <div class="math-header">
+                <div class="math-title">AP Calculus BC & Linear Algebra — Practice Problem Set 4.2</div>
+                <div class="math-meta
